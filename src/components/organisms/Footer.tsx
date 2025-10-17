@@ -1,4 +1,6 @@
-import { FaHeart, FaMapMarkedAlt, FaUser } from "react-icons/fa";
+import { FaMapMarkedAlt } from "react-icons/fa";
+import { LuHeartHandshake } from "react-icons/lu";
+import { PiHouseSimple } from "react-icons/pi";
 import { useNavigate } from "react-router";
 
 function Footer() {
@@ -11,16 +13,19 @@ function Footer() {
           onClick={() => navigate("/")}
           className="flex flex-col items-center text-gray-600 hover:text-yellow-500 cursor-pointer"
         >
+          <PiHouseSimple size={20} />
+          <p className="text-xs">Home</p>
+        </div>
+        <div
+          onClick={() => navigate("/")}
+          className="flex flex-col items-center text-gray-600 hover:text-yellow-500 cursor-pointer"
+        >
           <FaMapMarkedAlt size={20} />
           <p className="text-xs">Mapa</p>
         </div>
         <div className="flex flex-col items-center text-gray-600 hover:text-yellow-500 cursor-pointer">
-          <FaHeart size={20} />
+          <LuHeartHandshake size={20} />
           <p className="text-xs">Doar</p>
-        </div>
-        <div onClick={() => navigate("/login")} className="flex flex-col items-center text-gray-600 hover:text-yellow-500 cursor-pointer">
-          <FaUser size={20} />
-          <p className="text-xs">Conta</p>
         </div>
       </nav>
     </footer>
