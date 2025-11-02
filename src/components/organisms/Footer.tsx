@@ -11,12 +11,12 @@ function Footer() {
     {
       label: "Home",
       icon: <PiHouseSimple size={20} />,
-      path: "/",
+      path: "/app",
     },
     {
       label: "Mapa",
       icon: <FaMapMarkedAlt size={20} />,
-      path: "/mapa",
+      path: "/app/maps",
     },
     {
       label: "Doar",
@@ -26,7 +26,7 @@ function Footer() {
   ];
 
   return (
-    <footer className="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow-lg">
+    <footer className="fixed  bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow-lg">
       <nav className="flex justify-around py-2">
         {navItems.map((item) => {
           const isActive = location.pathname === item.path;

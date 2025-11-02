@@ -1,5 +1,12 @@
 import { BiMessageRoundedDetail } from "react-icons/bi";
 import { BsFillTelephoneFill } from "react-icons/bs";
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardTitle,
+} from "../ui/card";
 
 interface IOngCardProps {
   title: string;
@@ -10,23 +17,29 @@ interface IOngCardProps {
 export const OngCard = ({ title, address, description }: IOngCardProps) => {
   return (
     <>
-      <section className="bg-white rounded-xl p-4 shadow-sm border-l-4 border-l-yellow-500 cursor-pointer">
-        <h1 className="font-semibold text-gray-900 text-sm">{title}</h1>
-        <span className="text-xs text-gray-700">
-          <p>{address}</p>
-          <p>{description}</p>
-        </span>
-        <div className="flex flex-row gap-2">
-          <span className="flex flex-row gap-1 items-center mt-4">
+      <Card className="bg-white p-4 border-l-4 border-l-yellow-500 cursor-pointer w-full">
+        <CardTitle className="font-bold text-gray-900 text-sm">
+          {title}
+        </CardTitle>
+        <CardContent className="text-xs p-0 text-gray-700 ">
+          <CardDescription>{address}</CardDescription>
+          <CardDescription>{description}</CardDescription>
+        </CardContent>
+        <CardContent className="flex flex-row gap-2 p-0">
+          <CardAction className="flex flex-row gap-1 items-center mt-4">
             <BsFillTelephoneFill size={13} />
-            <p className="text-xs text-gray-700">Ligar</p>
-          </span>
-          <span className="flex flex-row gap-1 items-center mt-4">
+            <CardDescription className="text-xs text-gray-700">
+              Ligar
+            </CardDescription>
+          </CardAction>
+          <CardAction className="flex flex-row gap-1 items-center mt-4">
             <BiMessageRoundedDetail size={13} />
-            <p className="text-xs text-gray-700">Detalhes</p>
-          </span>
-        </div>
-      </section>
+            <CardDescription className="text-xs text-gray-700">
+              Detalhes
+            </CardDescription>
+          </CardAction>
+        </CardContent>
+      </Card>
     </>
   );
 };

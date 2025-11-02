@@ -1,4 +1,10 @@
-import { Card } from "../ui/card";
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardTitle,
+} from "../ui/card";
 
 interface NewsletterCardProps {
   title: string;
@@ -20,10 +26,12 @@ const NewsCard = ({
         src={imageUrl}
         alt={title}
       />
-      <div className="flex-1 flex flex-col">
-        <h2 className="text-xl font-semibold mb-2">{title}</h2>
-        <p className="text-gray-600 mb-4">{description}</p>
-        <div className="flex justify-end mt-auto">
+      <CardContent className="flex-1 flex flex-col">
+        <CardTitle className="text-xl font-semibold mb-2">{title}</CardTitle>
+        <CardDescription className="text-gray-600 mb-4">
+          {description}
+        </CardDescription>
+        <CardAction className="flex justify-end  mt-auto">
           {link && (
             <a
               href={link}
@@ -37,8 +45,8 @@ const NewsCard = ({
               <span aria-hidden="true">&rarr;</span>
             </a>
           )}
-        </div>
-      </div>
+        </CardAction>
+      </CardContent>
     </Card>
   );
 };
