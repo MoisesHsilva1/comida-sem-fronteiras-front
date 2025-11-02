@@ -1,3 +1,5 @@
+import { Item, ItemContent, ItemMedia, ItemTitle } from "../ui/item";
+
 interface MoralValuesCardProps {
   title: string;
   icon: React.ReactNode;
@@ -6,12 +8,16 @@ interface MoralValuesCardProps {
 
 const MoralValuesCard = ({ title, icon, className }: MoralValuesCardProps) => {
   return (
-    <section
-      className={`flex flex-col items-center justify-center w-50 p-4 ${className}`}
+    <Item
+      className={`flex flex-col items-center justify-center w-50 p-4 gap-0 ${className}`}
     >
-      <div className="flex items-center justify-center mb-2">{icon}</div>
-      <h1 className="font-bold">{title}</h1>
-    </section>
+      <ItemContent>
+        <ItemMedia className="flex items-center justify-center mb-2">
+          {icon}
+        </ItemMedia>
+        <ItemTitle className="font-bold">{title}</ItemTitle>
+      </ItemContent>
+    </Item>
   );
 };
 export default MoralValuesCard;

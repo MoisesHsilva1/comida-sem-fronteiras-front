@@ -1,7 +1,7 @@
 import { Button } from "../ui/button";
-import { Card } from "../ui/card";
+import { Card, CardContent, CardDescription, CardTitle } from "../ui/card";
 
-interface BaseCardInformationProps {
+interface CardInformationProps {
   title: string;
   description?: string;
   textButton?: string;
@@ -9,19 +9,26 @@ interface BaseCardInformationProps {
   image: string;
 }
 
-const BaseCardInformation = ({
+const CardInformation = ({
   title,
   description,
   textButton,
   onClickButton,
   image,
-}: BaseCardInformationProps) => {
+}: CardInformationProps) => {
   return (
-    <Card className="flex flex-col md:flex-row justify-between p-4 w-full h-auto md:h-60 shadow-lg gap-4">
-      <section className="flex flex-col gap-3 flex-1 justify-start">
-        <h1 className="text-xl text-black font-bold break-words" tabIndex={0}>{title}</h1>
+    <Card className="flex flex-col md:flex-row justify-between md:h-60 shadow-lg gap-4">
+      <CardContent className="flex flex-col gap-3 flex-1 justify-start">
+        <CardTitle className="text-xl text-black font-bold break-words">
+          {title}
+        </CardTitle>
         {description && (
-          <p className="text-gray-700 hidden md:block leading-relaxed" tabIndex={0}>{description}</p>
+          <CardDescription
+            className="text-gray-700 hidden md:block leading-relaxed"
+            tabIndex={0}
+          >
+            {description}
+          </CardDescription>
         )}
         {textButton && onClickButton && (
           <Button
@@ -33,18 +40,20 @@ const BaseCardInformation = ({
             {textButton}
           </Button>
         )}
-      </section>
-      <div className="flex-shrink-0 flex justify-start items-start w-full md:w-60">
+      </CardContent>
+      <CardContent className="flex-shrink-0 flex justify-start items-start w-full md:w-60">
         <img
           className="object-contain w-full max-h-48 md:h-full md:w-60 rounded"
           src={image}
           alt={`Imagem ilustrativa de ${title}`}
           role="img"
           loading="lazy"
-          onError={(e) => { e.currentTarget.src = '/assets/mockMaps.png'; }}
+          onError={(e) => {
+            e.currentTarget.src = "/assets/mockMaps.png";
+          }}
         />
-      </div>
+      </CardContent>
     </Card>
   );
 };
-export default BaseCardInformation;
+export default CardInformation;

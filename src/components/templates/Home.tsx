@@ -1,25 +1,20 @@
-import { useRef, useState } from "react";
 import { PiForkKnifeFill } from "react-icons/pi";
 import { FaPeopleCarry, FaHeart } from "react-icons/fa";
 import { BiSolidDonateHeart } from "react-icons/bi";
-import { Button } from "../ui/button";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "../ui/carousel";
 
-import BaseCardInformation from "../molecules/BaseCardInformation";
 import NewsCard from "../molecules/NewsCard";
 import MoralValuesCard from "../molecules/moralValuesCard";
+import CardInformation from "../molecules/CardInformation";
+import { Card, CardContent, CardTitle } from "../ui/card";
 
 function Home() {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [activeCard, setActiveCard] = useState(0);
-
-  const scrollToCard = (index: number) => {
-    if (scrollRef.current) {
-      const card = scrollRef.current.children[index] as HTMLElement;
-      card.scrollIntoView({ behavior: "smooth", inline: "center" });
-      setActiveCard(index);
-    }
-  };
-
   const optionsMoralValues = [
     {
       Icon: <PiForkKnifeFill size={50} color="#fcd01fff" />,
@@ -93,71 +88,27 @@ function Home() {
 
   return (
     <main>
-      <section>
-        <article className="bg-[#fcd01fff] w-full h-full p-8">
-          <div
-            className="flex justify-between gap-2 mb-4 hidden sm:flex"
-            role="navigation"
-            aria-label="Navegação de cards"
-          >
-            <Button
-              className={`bg-red-600 hover:bg-red-700 focus:ring-2 focus:ring-red-400 ${
-                activeCard === 0 ? "invisible" : ""
-              }`}
-              aria-label="Ver card anterior"
-              tabIndex={0}
-              onClick={() => scrollToCard(0)}
-              disabled={activeCard === 0}
-            >
-              Anterior
-            </Button>
-            <Button
-              className={`bg-red-600 hover:bg-red-700 focus:ring-2 focus:ring-red-400 ${
-                activeCard === 1 ? "invisible" : ""
-              }`}
-              aria-label="Ver próximo card"
-              tabIndex={0}
-              onClick={() => scrollToCard(1)}
-              disabled={activeCard === 1}
-            >
-              Próximo
-            </Button>
-          </div>
-          <div
-            ref={scrollRef}
-            className="flex overflow-x-auto gap-4 scroll-snap-x scroll-snap-mandatory hide-scrollbar"
-            style={{ scrollSnapType: "x mandatory" }}
-            tabIndex={0}
-            aria-label="Cards em destaque"
-            onKeyDown={(e) => {
-              if (e.key === "ArrowRight")
-                scrollToCard(
-                  Math.min(activeCard + 1, optionsCardSpotlight.length - 1)
-                );
-              if (e.key === "ArrowLeft")
-                scrollToCard(Math.max(activeCard - 1, 0));
-            }}
-          >
-            {optionsCardSpotlight.map((card, index) => (
-              <div
-                key={index}
-                className="min-w-[320px] max-w-full scroll-snap-align-start flex-shrink-0"
-                style={{ scrollSnapAlign: "start" }}
-              >
-                <BaseCardInformation
-                  title={card.title}
-                  textButton={card.textButton}
-                  description={card.description}
-                  image={card.image}
-                />
-              </div>
-            ))}
-          </div>
-        </article>
-      </section>
-      <section className="ml-8 mt-8 mb-10 hide-scrollbar">
-        <h1 className="text-xl font-bold mb-4 text-center">Nossos valores</h1>
-        <article
+      <Carousel className="bg-[#fcd01fff] w-full h-full p-8">
+        <CarouselContent>
+          {optionsCardSpotlight.map((card, index) => (
+            <CarouselItem key={index}>
+              <CardInformation
+                title={card.title}
+                textButton={card.textButton}
+                description={card.description}
+                image={card.image}
+              />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
+      <Card className="ml-8 mt-8 mb-10 hide-scrollbar border-0 shadow-none">
+        <CardTitle className="text-xl font-bold mb-4 text-center">
+          Nossos valores
+        </CardTitle>
+        <CardContent
           className="flex flex-nowrap sm:flex-wrap justify-center gap-4 overflow-x-auto scroll-snap-x scroll-snap-mandatory hide-scrollbar"
           aria-label="Lista de valores morais"
           style={{ scrollSnapType: "x mandatory" }}
@@ -177,11 +128,13 @@ function Home() {
               />
             </div>
           ))}
-        </article>
-      </section>
-      <section className="ml-8 m-4 mt-8 hide-scrollbar">
-        <h1 className="text-xl font-bold mb-4 text-center">Últimas notícias</h1>
-        <article
+        </CardContent>
+      </Card>
+      <Card className="ml-8 m-4 mt-8 hide-scrollbar border-0 shadow-none">
+        <CardTitle className="text-xl font-bold mb-4 text-center">
+          Últimas notícias
+        </CardTitle>
+        <CardContent
           className="flex flex-wrap gap-2"
           aria-label="Lista de notícias"
         >
@@ -194,8 +147,8 @@ function Home() {
               link={news.link}
             />
           ))}
-        </article>
-      </section>
+        </CardContent>
+      </Card>
     </main>
   );
 }
