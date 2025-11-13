@@ -82,67 +82,67 @@ function Home() {
   ];
 
   return (
-    <main>
-      <Carousel className="w-full max-w-6xl">
-        <CarouselContent>
-          {optionsCardSpotlight.map((option, index) => (
-            <CarouselItem key={index}>
-              <CardInformation
-                title={option.title}
-                description={option.description}
-                textButton={option.textButton}
-                image={option.image}
+    <main className="w-full min-h-screen bg-transparent flex flex-col items-center px-2 sm:px-4 md:px-8">
+      <section className="w-full flex justify-center">
+        <Carousel className="w-full max-w-6xl">
+          <CarouselContent>
+            {optionsCardSpotlight.map((option, index) => (
+              <CarouselItem key={index} className="flex justify-center">
+                <CardInformation
+                  title={option.title}
+                  description={option.description}
+                  textButton={option.textButton}
+                  image={option.image}
+                />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
+      </section>
+      <section className="w-full flex justify-center">
+        <Card className="w-full max-w-6xl mt-8 mb-10 border-0 shadow-none bg-transparent text-white px-2 sm:px-4">
+          <CardTitle className="text-xl font-bold mb-4 text-center">Nossos valores</CardTitle>
+          <CardContent
+            className="flex flex-nowrap sm:flex-wrap justify-center gap-4 overflow-x-auto scroll-snap-x scroll-snap-mandatory hide-scrollbar"
+            aria-label="Lista de valores morais"
+            style={{ scrollSnapType: 'x mandatory' }}
+          >
+            {optionsMoralValues.map((value, index) => (
+              <div
+                key={index}
+                className={`min-w-[220px] flex-shrink-0 scroll-snap-align-start ${value.classname ?? ''}`}
+                style={{ scrollSnapAlign: 'start' }}
+              >
+                <MoralValuesCard
+                  title={value.title}
+                  icon={value.icon ?? value.Icon}
+                  className={value.classname}
+                />
+              </div>
+            ))}
+          </CardContent>
+        </Card>
+      </section>
+      <section className="w-full flex justify-center">
+        <Card className="w-full max-w-6xl m-4 mt-8 border-0 shadow-none bg-transparent text-white px-2 sm:px-4">
+          <CardTitle className="text-xl font-bold mb-4 text-center">Últimas notícias</CardTitle>
+          <CardContent
+            className="flex justify-center flex-wrap gap-4"
+            aria-label="Lista de notícias"
+          >
+            {optionNews.map((news, index) => (
+              <NewsCard
+                key={index}
+                title={news.title}
+                imageUrl={news.imageUrl}
+                link={news.link}
               />
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
-      <Card className="ml-8 mt-8 mb-10 hide-scrollbar border-0 shadow-none bg-transparent text-white">
-        <CardTitle className="text-xl font-bold mb-4 text-center">
-          Nossos valores
-        </CardTitle>
-        <CardContent
-          className="flex flex-nowrap sm:flex-wrap justify-center gap-4 overflow-x-auto scroll-snap-x scroll-snap-mandatory hide-scrollbar"
-          aria-label="Lista de valores morais"
-          style={{ scrollSnapType: "x mandatory" }}
-        >
-          {optionsMoralValues.map((value, index) => (
-            <div
-              key={index}
-              className={`min-w-[220px] flex-shrink-0 scroll-snap-align-start ${
-                value.classname ?? ""
-              }`}
-              style={{ scrollSnapAlign: "start" }}
-            >
-              <MoralValuesCard
-                title={value.title}
-                icon={value.icon ?? value.Icon}
-                className={value.classname}
-              />
-            </div>
-          ))}
-        </CardContent>
-      </Card>
-      <Card className="ml-8 m-4 mt-8 hide-scrollbar border-0 shadow-none bg-transparent text-white">
-        <CardTitle className="text-xl font-bold mb-4 text-center">
-          Últimas notícias
-        </CardTitle>
-        <CardContent
-          className="flex justify-center flex-wrap gap-4"
-          aria-label="Lista de notícias"
-        >
-          {optionNews.map((news, index) => (
-            <NewsCard
-              key={index}
-              title={news.title}
-              imageUrl={news.imageUrl}
-              link={news.link}
-            />
-          ))}
-        </CardContent>
-      </Card>
+            ))}
+          </CardContent>
+        </Card>
+      </section>
     </main>
   );
 }

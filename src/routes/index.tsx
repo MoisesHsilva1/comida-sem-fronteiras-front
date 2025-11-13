@@ -33,7 +33,7 @@ function AppRoutes() {
       element: <Navigate to="/home" replace={true} />,
     },
     {
-      path: "/app",
+      path: "/",
       element: (
         <Suspense>
           <Layout />

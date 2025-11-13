@@ -9,15 +9,15 @@ function Header() {
   const navItems = [
     {
       label: "Home",
-      path: "/app/home",
+      path: "/home",
     },
     {
       label: "Mapa",
-      path: "/app/maps",
+      path: "/maps",
     },
     {
       label: "Doar",
-      path: "/app/doar",
+      path: "/doar",
     },
   ];
 
