@@ -16,6 +16,10 @@ import Environment from "@/config/env";
 
 function Maps() {
   const [isModalSearch, setIsModalSearch] = useState(false);
+  const [userLocation, setUserLocation] = useState<{
+    lat: number;
+    lon: number;
+  } | null>(null);
 
   const mapRef = useRef<mapboxgl.Map>(null);
   const mapContainerRef = useRef<HTMLDivElement>(null);
@@ -28,10 +32,25 @@ function Maps() {
     defaultValues: { search: "" },
   });
 
+  useEffect(() => {
+    if (!userLocation) {
+      getUserLocation();
+    }
+  }, [userLocation]);
+
+  const getUserLocation = () => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      const { latitude, longitude } = position.coords;
+      setUserLocation({ lat: latitude, lon: longitude });
+    });
+
+    return console.error("Error get location user");
+  };
+
   const { data: places } = usePlacesMapsFetch({
-    categories: "commercial.supermarket",
-    lon: -46.6401473,
-    lat: -23.5464032,
+    categories: "service.social_facility",
+    lon: userLocation?.lon || 0,
+    lat: userLocation?.lat || 0,
     distance: 1000,
     limit: 20,
   });

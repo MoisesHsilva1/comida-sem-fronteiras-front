@@ -1,5 +1,4 @@
 import { Button } from "../ui/button";
-import { Card, CardContent, CardDescription, CardTitle } from "../ui/card";
 
 interface CardInformationProps {
   title: string;
@@ -17,43 +16,29 @@ const CardInformation = ({
   image,
 }: CardInformationProps) => {
   return (
-    <Card className="flex flex-col md:flex-row justify-between md:h-60 shadow-lg gap-4">
-      <CardContent className="flex flex-col gap-3 flex-1 justify-start">
-        <CardTitle className="text-xl text-black font-bold break-words">
+    <section className="flex flex-col md:flex-row items-center justify-center gap-8 px-4 py-8 text-white w-full">
+      <div className="flex flex-col items-start max-w-3xl w-full mb-6 md:mb-0">
+        <h1 className="text-2xl md:text-3xl font-bold mb-4">
+          <span className="text-[#FF9F0D]">{title.slice(0, 3)}</span>
+          {title.slice(3)}
           {title}
-        </CardTitle>
-        {description && (
-          <CardDescription
-            className="text-gray-700 hidden md:block leading-relaxed"
-            tabIndex={0}
-          >
-            {description}
-          </CardDescription>
-        )}
-        {textButton && onClickButton && (
-          <Button
-            className="bg-yellow-300 font-bold w-full md:w-fit px-6 py-3 mt-2 text-base transition-colors duration-200 hover:bg-yellow-400 focus:ring-2 focus:ring-yellow-500 focus:outline-none"
-            onClick={onClickButton}
-            type="button"
-            aria-label={textButton}
-          >
-            {textButton}
-          </Button>
-        )}
-      </CardContent>
-      <CardContent className="flex-shrink-0 flex justify-start items-start w-full md:w-60">
+        </h1>
+        <p className="text-sm md:text-base mb-6">{description}</p>
+        <Button
+          className="bg-[#FF9F0D] w-full md:w-auto hover:bg-yellow-500  font-bold px-6 py-3 transition-colors duration-200 focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+          onClick={onClickButton}
+        >
+          {textButton}
+        </Button>
+      </div>
+      <div className="flex justify-center items-center w-full md:w-auto">
         <img
-          className="object-contain w-full max-h-48 md:h-full md:w-60 rounded"
           src={image}
-          alt={`Imagem ilustrativa de ${title}`}
-          role="img"
-          loading="lazy"
-          onError={(e) => {
-            e.currentTarget.src = "/assets/mockMaps.png";
-          }}
+          alt="Doe alimentos"
+          className="max-w-md w-full h-auto rounded-lg object-cover"
         />
-      </CardContent>
-    </Card>
+      </div>
+    </section>
   );
 };
 export default CardInformation;

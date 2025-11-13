@@ -1,43 +1,28 @@
-import {
-  Card,
-  CardAction,
-  CardContent,
-  CardDescription,
-  CardTitle,
-} from "../ui/card";
+import { Card, CardAction, CardContent, CardTitle } from "../ui/card";
 
 interface NewsletterCardProps {
   title: string;
-  description: string;
   imageUrl: string;
   link?: string;
 }
 
-const NewsCard = ({
-  title,
-  description,
-  imageUrl,
-  link,
-}: NewsletterCardProps) => {
+const NewsCard = ({ title, imageUrl, link }: NewsletterCardProps) => {
   return (
-    <Card className="flex flex-col sm:flex-row gap-4 p-4 items-start">
+    <Card className="flex flex-col gap-4 py-0 items-start bg-black text-white rounded-none">
       <img
-        className="w-full sm:w-48 h-32 sm:h-40 object-cover rounded-md"
+        className="w-full sm:w-80 h-32 sm:h-40 object-cover rounded-xs"
         src={imageUrl}
         alt={title}
       />
-      <CardContent className="flex-1 flex flex-col">
-        <CardTitle className="text-xl font-semibold mb-2">{title}</CardTitle>
-        <CardDescription className="text-gray-600 mb-4">
-          {description}
-        </CardDescription>
-        <CardAction className="flex justify-end  mt-auto">
+      <CardContent className="flex-1 flex flex-col w-80 pb-4">
+        <CardTitle className="text-md font-semibold mb-2 ">{title}</CardTitle>
+        <CardAction className="flex justify-end mt-auto">
           {link && (
             <a
               href={link}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-4 py-2 rounded-md text-yellow-400 font-medium underline hover:text-yellow-500 transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 active:bg-yellow-100 text-base sm:text-sm"
+              className="inline-flex px-4 py-2 rounded-md text-[#FF9F0D] font-medium underline hover:text-yellow-500 transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 active:bg-yellow-100 text-base sm:text-sm"
               aria-label={`Leia mais sobre ${title}`}
               tabIndex={0}
             >
