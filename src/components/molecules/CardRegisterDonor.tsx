@@ -84,7 +84,6 @@ const CardRegisterDonor = ({
       </div>
       <div className="md:col-span-2 flex flex-col md:flex-row justify-end items-center gap-3 mt-4">
         <Button
-          variant="outline"
           type="button"
           onClick={onClickBack}
           className="w-full md:w-auto"
