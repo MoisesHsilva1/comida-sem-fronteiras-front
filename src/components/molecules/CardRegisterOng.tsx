@@ -8,20 +8,17 @@ interface CardRegisterOngProps {
   control: any;
   isLoading?: boolean;
   onClickBack?: () => void;
+  onSubmit?: (formData: any) => void;
 }
 
 const CardRegisterOng = ({
   control,
   isLoading,
   onClickBack,
+  onSubmit,
 }: CardRegisterOngProps) => (
   <Card className="bg-transparent rounded-sm p-6 max-w-xl mx-auto shadow-lg">
-    <form
-      className="grid grid-cols-1 md:grid-cols-2 gap-4"
-      onSubmit={(e) => {
-        e.preventDefault();
-      }}
-    >
+    <form className="grid grid-cols-1 md:grid-cols-2 gap-4" onSubmit={onSubmit}>
       <div className="flex flex-col">
         <label htmlFor="name" className="text-white mb-1 font-medium">
           Nome
