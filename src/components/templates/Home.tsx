@@ -13,8 +13,11 @@ import {
 import NewsCard from "../molecules/NewsCard";
 import MoralValuesCard from "../molecules/moralValuesCard";
 import CardInformation from "../molecules/CardInformation";
+import { useNavigate } from "react-router";
 
 function Home() {
+  const navigate = useNavigate();
+
   const optionsMoralValues = [
     {
       Icon: <PiForkKnifeFill size={50} color="#fcd01fff" />,
@@ -87,7 +90,7 @@ function Home() {
         <Carousel className="w-full max-w-6xl">
           <CarouselContent>
             {optionsCardSpotlight.map((option, index) => (
-              <CarouselItem key={index} className="flex justify-center">
+              <CarouselItem onClick={() => navigate("/doar")} key={index} className="flex justify-center">
                 <CardInformation
                   title={option.title}
                   description={option.description}
