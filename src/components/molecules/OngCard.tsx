@@ -17,24 +17,24 @@ interface IOngCardProps {
 export const OngCard = ({ title, address, description }: IOngCardProps) => {
   return (
     <>
-      <Card className="bg-white p-4 border-l-4 border-l-yellow-500 cursor-pointer w-full">
-        <CardTitle className="font-bold text-gray-900 text-sm">
+      <Card className="bg-black p-4 border-none cursor-pointer w-full">
+        <CardTitle className="font-bold text-white text-sm">
           {title}
         </CardTitle>
-        <CardContent className="text-xs p-0 text-gray-700 ">
+        <CardContent className="text-xs p-0 text-white">
           <CardDescription>{address}</CardDescription>
           <CardDescription>{description}</CardDescription>
         </CardContent>
         <CardContent className="flex flex-row gap-2 p-0">
           <CardAction className="flex flex-row gap-1 items-center mt-4">
-            <BsFillTelephoneFill size={13} />
-            <CardDescription className="text-xs text-gray-700">
+            <BsFillTelephoneFill color="white" size={13} />
+            <CardDescription className="text-xs text-white">
               Ligar
             </CardDescription>
           </CardAction>
           <CardAction className="flex flex-row gap-1 items-center mt-4">
-            <BiMessageRoundedDetail size={13} />
-            <CardDescription className="text-xs text-gray-700">
+            <BiMessageRoundedDetail color="white" size={13} />
+            <CardDescription className="text-xs text-white">
               Detalhes
             </CardDescription>
           </CardAction>

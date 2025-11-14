@@ -23,7 +23,10 @@ function Header() {
 
   return (
     <header className="fixed top-0 left-0 w-full bg-black shadow-md z-50">
-      <div className="flex items-center justify-center gap-2 p-4">
+      <div
+        className="flex items-center justify-center gap-2 p-4"
+        onClick={() => navigate("/home")}
+      >
         <PiForkKnifeFill size={30} className="text-[#FF9F0D]" />
         <h1 className="text-md font-semibold text-white">
           Comida sem Fronteiras
