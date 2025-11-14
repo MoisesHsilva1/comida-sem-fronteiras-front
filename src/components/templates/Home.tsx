@@ -44,7 +44,7 @@ function Home() {
       description:
         "Em 2023, 27,6% dos domicílios brasileiros — cerca de 21,6 milhões de lares — viviam algum grau de insegurança alimentar, segundo levantamento da PNAD Contínua (IBGE). Desses, 4,1% enfrentavam insegurança alimentar grave, situação em que adultos e crianças experimentam privação de alimentos.",
       image:
-        "https://curious-beige-rnu9zg8tuf.edgeone.app/Design%20sem%20nome.png",
+        "https://res.cloudinary.com/dtglxnl4z/image/upload/v1763121408/Design_sem_nome_1_vnhryd.png",
     },
     {
       title:
@@ -53,7 +53,7 @@ function Home() {
       description:
         "No Brasil, milhões ainda enfrentam a fome todos os dias. Segundo o IBGE, mais de 21 milhões de lares vivem em insegurança alimentar, e milhões de pessoas não têm o que comer. Sua doação pode levar esperança e dignidade a quem mais precisa.",
       image:
-        "https://muddy-bronze-jhnuacmdzt.edgeone.app/Design%20sem%20nome%20(1).png",
+        "https://res.cloudinary.com/dtglxnl4z/image/upload/v1763121395/Design_sem_nome_zd7qkf.png",
     },
   ];
 
