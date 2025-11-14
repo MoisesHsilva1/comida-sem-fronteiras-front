@@ -29,7 +29,7 @@ function Header() {
       >
         <PiForkKnifeFill size={30} className="text-[#FF9F0D]" />
         <h1 className="text-md font-semibold text-white">
-          Comida sem Fronteiras
+          Comidas sem Fronteiras
         </h1>
       </div>
       <ItemGroup className="flex items-center">
