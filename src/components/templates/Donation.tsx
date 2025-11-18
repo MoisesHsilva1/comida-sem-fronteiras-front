@@ -156,7 +156,6 @@ function Donation() {
               <CardDescription className="text-white text-sm text-center px-2">
                 Conecte-se a ONGs reais que mudam vidas todos os dias. Cadastre
                 sua organização ou contribua como doador.
-                <span className="text-gray-900">O que fazemos para nós mesmos morre conosco. O que fazemos pelos outros e pelo mundo permanece e é imortal.</span>
               </CardDescription>
             </CardContent>
             <CardContent className="flex flex-col sm:flex-row justify-center gap-2 sm:gap-4 w-full px-2">
